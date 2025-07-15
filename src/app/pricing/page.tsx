@@ -94,6 +94,14 @@ export default function PricingPage() {
         </div>
       </header>
 
+      {/* Coming Soon Overlay */}
+      <div className="fixed inset-0 top-16 z-40 bg-background/80 backdrop-blur-sm flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-4xl font-bold mb-4">Coming Soon!</h1>
+          {/* <p className="text-muted-foreground">We're working on our pricing page.</p> */}
+        </div>
+      </div>
+
       {/* Hero Section */}
       <section className="relative overflow-hidden pt-32 pb-20 lg:pt-40 lg:pb-32">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5" />
