@@ -102,7 +102,7 @@ export default function HomePage() {
           >
             <h1 className="text-4xl font-bold tracking-tight sm:text-6xl lg:text-7xl">
               <span className="whitespace-nowrap">Study More,{" "}
-              <span className="text-primary">Work Less</span></span>
+              <span className="text-primary">Work Less!</span></span>
             </h1>
             <p className="mt-6 text-lg leading-8 text-muted-foreground sm:text-xl">
               The AI assistant that understands your Canvas context, supercharges your productivity, and lives seamlessly within your academic workflow.
