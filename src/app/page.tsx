@@ -13,10 +13,21 @@ import {
   CheckCircle,
   Users,
   TrendingUp,
-  Sparkles
+  Sparkles,
+  Menu,
+  X
 } from "lucide-react";
+import { useState } from "react";
 
 export default function HomePage() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  
+  const navigationItems = [
+    { href: "/features", label: "Features" },
+    { href: "/pricing", label: "Pricing" },
+    { href: "/docs", label: "Docs" },
+    { href: "/docs/quickstart", label: "Get Started", primary: true }
+  ];
   return (
     <>
       {/* Header */}
@@ -25,26 +36,57 @@ export default function HomePage() {
           <div className="flex h-16 items-center justify-between">
             <Link href="/" className="flex items-center space-x-2">
               <GraduationCap className="h-6 w-6 text-primary" />
-              <span className="font-bold text-xl">Canvas MCP Tool</span>
+              <span className="font-bold text-xl">Syllabus</span>
             </Link>
+            
+            {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-6">
-              <Link href="/features" className="text-sm font-medium hover:text-primary transition-colors">
-                Features
-              </Link>
-              <Link href="/pricing" className="text-sm font-medium hover:text-primary transition-colors">
-                Pricing
-              </Link>
-              <Link href="/docs" className="text-sm font-medium hover:text-primary transition-colors">
-                Docs
-              </Link>
-              <Link 
-                href="/docs/quickstart"
-                className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
-              >
-                Get Started
-              </Link>
+              {navigationItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={
+                    item.primary
+                      ? "rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
+                      : "text-sm font-medium hover:text-primary transition-colors"
+                  }
+                >
+                  {item.label}
+                </Link>
+              ))}
             </nav>
+
+            {/* Mobile Menu Button */}
+            <button
+              className="md:hidden p-2"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle mobile menu"
+            >
+              {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
           </div>
+
+          {/* Mobile Navigation */}
+          {mobileMenuOpen && (
+            <div className="md:hidden border-t bg-background/95 backdrop-blur">
+              <nav className="container mx-auto px-4 py-4 space-y-4">
+                {navigationItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={
+                      item.primary
+                        ? "block w-full rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors text-center"
+                        : "block text-sm font-medium hover:text-primary transition-colors"
+                    }
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </nav>
+            </div>
+          )}
         </div>
       </header>
 
@@ -59,8 +101,8 @@ export default function HomePage() {
             className="mx-auto max-w-4xl text-center"
           >
             <h1 className="text-4xl font-bold tracking-tight sm:text-6xl lg:text-7xl">
-              Study More,{" "}
-              <span className="text-primary">Work Less</span>
+              <span className="whitespace-nowrap">Study More,{" "}
+              <span className="text-primary">Work Less</span></span>
             </h1>
             <p className="mt-6 text-lg leading-8 text-muted-foreground sm:text-xl">
               The AI assistant that understands your Canvas context, supercharges your productivity, and lives seamlessly within your academic workflow.
@@ -116,7 +158,7 @@ export default function HomePage() {
               Who Are You?
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              Choose your path to discover how Canvas MCP Tool transforms your workflow
+              Choose your path to discover how Syllabus transforms your workflow
             </p>
           </motion.div>
 
@@ -366,10 +408,10 @@ export default function HomePage() {
             <div>
               <Link href="/" className="flex items-center space-x-2 mb-4">
                 <GraduationCap className="h-6 w-6 text-primary" />
-                <span className="font-bold text-lg">Canvas MCP Tool</span>
+                <span className="font-bold text-lg">Syllabus</span>
               </Link>
               <p className="text-sm text-muted-foreground">
-                AI-powered productivity for Canvas LMS
+                Your AI academic assistant
               </p>
             </div>
             
@@ -394,7 +436,7 @@ export default function HomePage() {
             <div>
               <h3 className="font-semibold mb-4">Connect</h3>
               <ul className="space-y-2 text-sm">
-                <li><a href="https://github.com/amanmson/canvas-mcp-tool" className="text-muted-foreground hover:text-foreground">GitHub</a></li>
+                <li><a href="https://github.com/jamubc/syllabus" className="text-muted-foreground hover:text-foreground">GitHub</a></li>
                 <li><a href="#" className="text-muted-foreground hover:text-foreground">Discord</a></li>
                 <li><a href="#" className="text-muted-foreground hover:text-foreground">Twitter</a></li>
               </ul>
@@ -402,7 +444,7 @@ export default function HomePage() {
           </div>
           
           <div className="mt-8 border-t pt-8 text-center text-sm text-muted-foreground">
-            <p>&copy; 2025 Canvas MCP Tool. All rights reserved.</p>
+            <p>&copy; 2025 Syllabus. All rights reserved.</p>
           </div>
         </div>
       </footer>

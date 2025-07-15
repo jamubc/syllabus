@@ -17,12 +17,23 @@ import {
   Key,
   FileCode,
   ExternalLink,
-  ChevronRight
+  ChevronRight,
+  Menu,
+  X,
+  HelpCircle
 } from "lucide-react";
 import { useState } from "react";
 
 export default function DocsPage() {
   const [copiedCode, setCopiedCode] = useState<string | null>(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  
+  const navigationItems = [
+    { href: "/features", label: "Features" },
+    { href: "/pricing", label: "Pricing" },
+    { href: "/docs", label: "Docs" },
+    { href: "/docs/quickstart", label: "Get Started", primary: true }
+  ];
 
   const copyToClipboard = (code: string, id: string) => {
     navigator.clipboard.writeText(code);
@@ -38,27 +49,56 @@ export default function DocsPage() {
           <div className="flex h-16 items-center justify-between">
             <Link href="/" className="flex items-center space-x-2">
               <GraduationCap className="h-6 w-6 text-primary" />
-              <span className="font-bold text-xl">Canvas MCP Tool</span>
+              <span className="font-bold text-xl">Syllabus</span>
             </Link>
+            {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-6">
-              <Link href="/features" className="text-sm font-medium hover:text-primary transition-colors">
-                Features
-              </Link>
-              <Link href="/pricing" className="text-sm font-medium hover:text-primary transition-colors">
-                Pricing
-              </Link>
-              <Link href="/docs" className="text-sm font-medium text-primary transition-colors">
-                Docs
-              </Link>
-              <a 
-                href="https://github.com/amanmson/canvas-mcp-tool"
-                className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
-              >
-                <GitBranch className="inline-block h-4 w-4 mr-1" />
-                GitHub
-              </a>
+              {navigationItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={
+                    item.primary
+                      ? "rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
+                      : "text-sm font-medium hover:text-primary transition-colors"
+                  }
+                >
+                  {item.label}
+                </Link>
+              ))}
             </nav>
+
+            {/* Mobile Menu Button */}
+            <button
+              className="md:hidden p-2"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle mobile menu"
+            >
+              {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
           </div>
+
+          {/* Mobile Navigation */}
+          {mobileMenuOpen && (
+            <div className="md:hidden border-t bg-background/95 backdrop-blur">
+              <nav className="container mx-auto px-4 py-4 space-y-4">
+                {navigationItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={
+                      item.primary
+                        ? "block w-full rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors text-center"
+                        : "block text-sm font-medium hover:text-primary transition-colors"
+                    }
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </nav>
+            </div>
+          )}
         </div>
       </header>
 
@@ -74,7 +114,7 @@ export default function DocsPage() {
           >
             <h1 className="text-4xl font-bold tracking-tight sm:text-6xl lg:text-7xl">
               Getting Started with
-              <span className="block text-primary">Canvas MCP Tool</span>
+              <span className="block text-primary">Syllabus</span>
             </h1>
             
             <p className="mt-6 text-lg leading-8 text-muted-foreground sm:text-xl">
@@ -90,7 +130,7 @@ export default function DocsPage() {
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Link>
               <a
-                href="https://github.com/amanmson/canvas-mcp-tool/blob/main/README.md"
+                href="https://github.com/jamubc/syllabus/blob/main/README.md"
                 className="inline-flex items-center rounded-lg border border-border bg-background px-6 py-3 text-base font-semibold hover:bg-secondary transition-colors"
               >
                 <GitBranch className="mr-2 h-4 w-4" />
@@ -126,7 +166,20 @@ export default function DocsPage() {
                     <Key className="h-6 w-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-2">Canvas API Token</h3>
+                    <div className="flex items-center justify-between mb-2">
+                      <h3 className="font-semibold">Canvas API Token</h3>
+                      <Link
+                        href="https://canvas.instructure.com/doc/api/file.oauth.html"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group flex items-center gap-1 px-2 py-1 text-xs bg-blue-50 hover:bg-blue-100 border border-blue-200 rounded-md transition-colors"
+                        aria-label="Learn about API safety"
+                      >
+                        <HelpCircle className="h-3 w-3 text-blue-600" />
+                        <span className="text-blue-700 font-medium">API Safety</span>
+                        <ExternalLink className="h-3 w-3 text-blue-600 opacity-50 group-hover:opacity-100 transition-opacity" />
+                      </Link>
+                    </div>
                     <p className="text-sm text-muted-foreground mb-3">
                       You'll need an API token from your Canvas account to enable the integration.
                     </p>
@@ -166,7 +219,7 @@ export default function DocsPage() {
                   <div>
                     <h3 className="font-semibold mb-2">AI Platform</h3>
                     <p className="text-sm text-muted-foreground mb-3">
-                      Canvas MCP Tool works with multiple AI platforms. Choose your preferred one:
+                      Syllabus works with multiple AI platforms. Choose your preferred one:
                     </p>
                     <ul className="space-y-2 text-sm">
                       <li className="flex items-center gap-2">
@@ -180,10 +233,6 @@ export default function DocsPage() {
                       <li className="flex items-center gap-2">
                         <Check className="h-4 w-4 text-primary" />
                         <span>Gemini CLI</span>
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <Check className="h-4 w-4 text-primary" />
-                        <span>Direct NPX usage</span>
                       </li>
                     </ul>
                   </div>
@@ -255,7 +304,7 @@ export default function DocsPage() {
                     <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-sm font-bold text-primary-foreground">
                       2
                     </span>
-                    Add Canvas MCP Tool
+                    Add Syllabus
                   </h4>
                   <div className="ml-10 rounded-lg bg-muted p-4">
                     <div className="flex items-center justify-between">
@@ -424,7 +473,7 @@ export default function DocsPage() {
             <div className="mb-12">
               <h3 className="text-2xl font-semibold mb-6 flex items-center gap-2">
                 <Terminal className="h-6 w-6 text-primary" />
-                Method 3: Direct NPX Usage
+                Method 3: Direct Installation
               </h3>
               
               <div className="rounded-lg bg-muted p-4">
@@ -641,7 +690,7 @@ export default function DocsPage() {
                 Join our community for support and updates:
               </p>
               <div className="flex flex-wrap gap-4">
-                <a href="https://github.com/amanmson/canvas-mcp-tool/issues" className="text-sm text-primary hover:underline inline-flex items-center">
+                <a href="https://github.com/jamubc/syllabus/issues" className="text-sm text-primary hover:underline inline-flex items-center">
                   GitHub Issues
                   <ExternalLink className="ml-1 h-3 w-3" />
                 </a>
@@ -675,7 +724,7 @@ export default function DocsPage() {
                 <BookOpen className="h-8 w-8 text-primary mx-auto mb-3" />
                 <h3 className="font-semibold mb-2">Explore Features</h3>
                 <p className="text-sm text-muted-foreground mb-3">
-                  Discover all the powerful capabilities of Canvas MCP Tool
+                  Discover all the powerful capabilities of Syllabus
                 </p>
                 <span className="text-sm text-primary font-medium inline-flex items-center">
                   Learn more
@@ -699,13 +748,13 @@ export default function DocsPage() {
               </Link>
 
               <a
-                href="https://github.com/amanmson/canvas-mcp-tool"
+                href="https://github.com/jamubc/syllabus"
                 className="group rounded-lg border bg-card p-6 hover:shadow-lg transition-all hover:border-primary"
               >
                 <GitBranch className="h-8 w-8 text-primary mx-auto mb-3" />
                 <h3 className="font-semibold mb-2">Contribute</h3>
                 <p className="text-sm text-muted-foreground mb-3">
-                  Help improve Canvas MCP Tool on GitHub
+                  Help improve Syllabus on GitHub
                 </p>
                 <span className="text-sm text-primary font-medium inline-flex items-center">
                   Star on GitHub
@@ -724,7 +773,7 @@ export default function DocsPage() {
             <div>
               <Link href="/" className="flex items-center space-x-2 mb-4">
                 <GraduationCap className="h-6 w-6 text-primary" />
-                <span className="font-bold text-lg">Canvas MCP Tool</span>
+                <span className="font-bold text-lg">Syllabus</span>
               </Link>
               <p className="text-sm text-muted-foreground">
                 AI-powered productivity for Canvas LMS
@@ -752,7 +801,7 @@ export default function DocsPage() {
             <div>
               <h3 className="font-semibold mb-4">Connect</h3>
               <ul className="space-y-2 text-sm">
-                <li><a href="https://github.com/amanmson/canvas-mcp-tool" className="text-muted-foreground hover:text-foreground">GitHub</a></li>
+                <li><a href="https://github.com/jamubc/syllabus" className="text-muted-foreground hover:text-foreground">GitHub</a></li>
                 <li><a href="#" className="text-muted-foreground hover:text-foreground">Discord</a></li>
                 <li><a href="#" className="text-muted-foreground hover:text-foreground">Twitter</a></li>
               </ul>
@@ -760,7 +809,7 @@ export default function DocsPage() {
           </div>
           
           <div className="mt-8 border-t pt-8 text-center text-sm text-muted-foreground">
-            <p>&copy; 2025 Canvas MCP Tool. All rights reserved.</p>
+            <p>&copy; 2025 Syllabus. All rights reserved.</p>
           </div>
         </div>
       </footer>

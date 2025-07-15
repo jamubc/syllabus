@@ -18,10 +18,23 @@ import {
   Bot,
   Network,
   Sparkles,
-  Command
+  Command,
+  Menu,
+  X,
+  GraduationCap
 } from "lucide-react";
+import { useState } from "react";
 
 export default function ForProductivityPage() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  
+  const navigationItems = [
+    { href: "/features", label: "Features" },
+    { href: "/pricing", label: "Pricing" },
+    { href: "/docs", label: "Docs" },
+    { href: "/docs/quickstart", label: "Get Started", primary: true }
+  ];
+  
   return (
     <>
       {/* Header */}
@@ -29,27 +42,57 @@ export default function ForProductivityPage() {
         <div className="container mx-auto px-4">
           <div className="flex h-16 items-center justify-between">
             <Link href="/" className="flex items-center space-x-2">
-              <Zap className="h-6 w-6 text-primary" />
-              <span className="font-bold text-xl">Canvas MCP Tool</span>
+              <GraduationCap className="h-6 w-6 text-primary" />
+              <span className="font-bold text-xl">Syllabus</span>
             </Link>
+            {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-6">
-              <Link href="/features" className="text-sm font-medium hover:text-primary transition-colors">
-                Features
-              </Link>
-              <Link href="/docs/api" className="text-sm font-medium hover:text-primary transition-colors">
-                API Docs
-              </Link>
-              <Link href="/integrations" className="text-sm font-medium hover:text-primary transition-colors">
-                Integrations
-              </Link>
-              <Link 
-                href="https://github.com/amanmson/canvas-mcp-tool"
-                className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
-              >
-                View on GitHub
-              </Link>
+              {navigationItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={
+                    item.primary
+                      ? "rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
+                      : "text-sm font-medium hover:text-primary transition-colors"
+                  }
+                >
+                  {item.label}
+                </Link>
+              ))}
             </nav>
+
+            {/* Mobile Menu Button */}
+            <button
+              className="md:hidden p-2"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle mobile menu"
+            >
+              {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
           </div>
+
+          {/* Mobile Navigation */}
+          {mobileMenuOpen && (
+            <div className="md:hidden border-t bg-background/95 backdrop-blur">
+              <nav className="container mx-auto px-4 py-4 space-y-4">
+                {navigationItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={
+                      item.primary
+                        ? "block w-full rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors text-center"
+                        : "block text-sm font-medium hover:text-primary transition-colors"
+                    }
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </nav>
+            </div>
+          )}
         </div>
       </header>
 
@@ -485,7 +528,7 @@ export default function ForProductivityPage() {
               <p className="text-muted-foreground mb-4">
                 Full source code available. Self-host, contribute, or fork to build your own custom solution.
               </p>
-              <a href="https://github.com/amanmson/canvas-mcp-tool" className="text-primary font-medium hover:underline inline-flex items-center">
+              <a href="https://github.com/jamubc/syllabus" className="text-primary font-medium hover:underline inline-flex items-center">
                 View on GitHub
                 <ArrowRight className="ml-1 h-4 w-4" />
               </a>
@@ -682,7 +725,7 @@ export default function ForProductivityPage() {
                 <Sparkles className="ml-2 h-5 w-5 group-hover:rotate-12 transition-transform" />
               </Link>
               <a
-                href="https://github.com/amanmson/canvas-mcp-tool"
+                href="https://github.com/jamubc/syllabus"
                 className="inline-flex items-center rounded-lg border border-primary-foreground/20 bg-primary-foreground/10 px-8 py-4 text-lg font-semibold text-primary-foreground hover:bg-primary-foreground/20 transition-colors"
               >
                 <GitBranch className="mr-2 h-5 w-5" />
@@ -718,8 +761,8 @@ export default function ForProductivityPage() {
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
             <div>
               <Link href="/" className="flex items-center space-x-2 mb-4">
-                <Zap className="h-6 w-6 text-primary" />
-                <span className="font-bold text-lg">Canvas MCP Tool</span>
+                <GraduationCap className="h-6 w-6 text-primary" />
+                <span className="font-bold text-lg">Syllabus</span>
               </Link>
               <p className="text-sm text-muted-foreground">
                 Context-aware AI for your productivity stack
@@ -731,7 +774,7 @@ export default function ForProductivityPage() {
               <ul className="space-y-2 text-sm">
                 <li><Link href="/docs/api" className="text-muted-foreground hover:text-foreground">API Reference</Link></li>
                 <li><Link href="/docs/sdk" className="text-muted-foreground hover:text-foreground">SDKs</Link></li>
-                <li><a href="https://github.com/amanmson/canvas-mcp-tool" className="text-muted-foreground hover:text-foreground">GitHub</a></li>
+                <li><a href="https://github.com/jamubc/syllabus" className="text-muted-foreground hover:text-foreground">GitHub</a></li>
               </ul>
             </div>
 
@@ -755,7 +798,7 @@ export default function ForProductivityPage() {
           </div>
           
           <div className="mt-8 border-t pt-8 text-center text-sm text-muted-foreground">
-            <p>&copy; 2025 Canvas MCP Tool. Open source under MIT License.</p>
+            <p>&copy; 2025 Syllabus. Open source under MIT License.</p>
           </div>
         </div>
       </footer>
