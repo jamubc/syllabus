@@ -34,6 +34,10 @@ const config: Config = {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
         },
+        canvas: {
+          DEFAULT: "hsl(var(--canvas-accent))",
+          foreground: "hsl(var(--canvas-accent-foreground))",
+        },
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
