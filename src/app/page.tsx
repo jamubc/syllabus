@@ -156,7 +156,7 @@ export default function HomePage() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-10%" }}
             className="mx-auto max-w-2xl text-center mb-16"
           >
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
@@ -295,7 +295,7 @@ export default function HomePage() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-10%" }}
             className="mx-auto max-w-2xl text-center mb-16"
           >
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
@@ -381,10 +381,10 @@ export default function HomePage() {
             <div className="absolute inset-0 bg-gradient-to-br from-primary/90 to-primary" />
             <div className="relative mx-auto max-w-2xl">
               <h2 className="text-3xl font-bold tracking-tight text-primary-foreground sm:text-4xl">
-                Ready to Transform Your Canvas Experience?
+                Ready to 10x your studying?
               </h2>
               <p className="mt-4 text-lg text-primary-foreground/90">
-                Join thousands of students and educators already saving time with AI-powered productivity
+                Join thousands of students saving time with syllabus-mcp
               </p>
               <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link

@@ -685,7 +685,7 @@ export default function FeaturesPage() {
             <div className="absolute inset-0 bg-gradient-to-br from-primary/90 to-primary" />
             <div className="relative mx-auto max-w-2xl">
               <h2 className="text-3xl font-bold tracking-tight text-primary-foreground sm:text-4xl">
-                Experience Every Feature Today
+                10x your homework today
               </h2>
               <p className="mt-4 text-lg text-primary-foreground/90">
                 Join thousands using Syllabus to transform their academic experience
