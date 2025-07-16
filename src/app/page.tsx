@@ -95,6 +95,7 @@ export default function HomePage() {
         </div>
       </header>
 
+        
       {/* Hero Section */}
       <section className="relative overflow-hidden pt-32 pb-20 lg:pt-40 lg:pb-32">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5" />

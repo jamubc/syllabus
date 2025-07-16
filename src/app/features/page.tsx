@@ -376,7 +376,7 @@ export default function FeaturesPage() {
               AI-Powered Intelligence
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              Context-aware AI that understands your academic needs
+              Context-aware tools that understand natural questions
             </p>
           </motion.div>
 

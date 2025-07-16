@@ -22,6 +22,9 @@ import { useState } from "react";
 export default function PricingPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   
+  // Set to false when pricing is ready to launch
+  const isPricingBlurred = true;
+  
   const navigationItems = [
     { href: "/features", label: "Features" },
     { href: "/pricing", label: "Pricing" },
@@ -122,7 +125,25 @@ export default function PricingPage() {
       {/* Main Pricing Section */}
       <section className="py-20 lg:py-32">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+          <div className="relative">
+            {isPricingBlurred && (
+              <div className="absolute inset-0 z-10 flex items-center justify-center">
+                <div className="rounded-2xl bg-background/90 backdrop-blur-sm border px-8 py-6 text-center shadow-lg">
+                  <h3 className="text-2xl font-bold mb-2">Coming Soon</h3>
+                  <p className="text-muted-foreground">
+                    Pricing details are being finalized. Try the beta for free!
+                  </p>
+                  <Link
+                    href="/docs/quickstart"
+                    className="mt-4 inline-flex items-center rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors"
+                  >
+                    Try the beta
+                    <ArrowRight className="ml-1 h-4 w-4" />
+                  </Link>
+                </div>
+              </div>
+            )}
+            <div className={`grid grid-cols-1 gap-8 lg:grid-cols-3 ${isPricingBlurred ? 'blur-sm' : ''}`}>
             {/* Free Tier */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -153,36 +174,40 @@ export default function PricingPage() {
 
               <div className="space-y-4">
                 <h4 className="font-semibold">Everything you need to start:</h4>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span className="text-sm">Canvas integration</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span className="text-sm">50 AI queries per month</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span className="text-sm">Assignment tracking</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span className="text-sm">Basic grade viewing</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span className="text-sm">Citation generator</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <X className="h-5 w-5 text-muted-foreground flex-shrink-0 mt-0.5" />
-                    <span className="text-sm text-muted-foreground">Advanced AI features</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <X className="h-5 w-5 text-muted-foreground flex-shrink-0 mt-0.5" />
-                    <span className="text-sm text-muted-foreground">Priority support</span>
-                  </li>
-                </ul>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="space-y-3">
+                    <div className="flex items-start gap-3">
+                      <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-sm">Canvas integration</span>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-sm">50 AI queries per month</span>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-sm">Assignment tracking</span>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-sm">Basic grade viewing</span>
+                    </div>
+                  </div>
+                  <div className="space-y-3">
+                    <div className="flex items-start gap-3">
+                      <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-sm">Citation generator</span>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <X className="h-5 w-5 text-muted-foreground flex-shrink-0 mt-0.5" />
+                      <span className="text-sm text-muted-foreground">Advanced AI features</span>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <X className="h-5 w-5 text-muted-foreground flex-shrink-0 mt-0.5" />
+                      <span className="text-sm text-muted-foreground">Priority support</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </motion.div>
 
@@ -220,40 +245,44 @@ export default function PricingPage() {
 
               <div className="space-y-4">
                 <h4 className="font-semibold">Everything in Free, plus:</h4>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span className="text-sm">Unlimited AI queries</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span className="text-sm">Smart assignment assistant</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span className="text-sm">24/7 AI tutoring</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span className="text-sm">Advanced writing tools</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span className="text-sm">Grade predictions & insights</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span className="text-sm">Study plan generation</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span className="text-sm">Priority email support</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span className="text-sm">API access (100k calls/mo)</span>
-                  </li>
-                </ul>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="space-y-3">
+                    <div className="flex items-start gap-3">
+                      <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-sm">Unlimited AI queries</span>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-sm">Smart assignment assistant</span>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-sm">24/7 AI tutoring</span>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-sm">Advanced writing tools</span>
+                    </div>
+                  </div>
+                  <div className="space-y-3">
+                    <div className="flex items-start gap-3">
+                      <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-sm">Grade predictions & insights</span>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-sm">Study plan generation</span>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-sm">Priority email support</span>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-sm">API access (100k calls/mo)</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </motion.div>
 
@@ -284,42 +313,47 @@ export default function PricingPage() {
 
               <div className="space-y-4">
                 <h4 className="font-semibold">Everything in Pro, plus:</h4>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span className="text-sm">Shared workspace</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span className="text-sm">Group project management</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span className="text-sm">Collaborative notes</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span className="text-sm">Team analytics</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span className="text-sm">Admin controls</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span className="text-sm">Priority chat support</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span className="text-sm">Volume discounts available</span>
-                  </li>
-                </ul>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="space-y-3">
+                    <div className="flex items-start gap-3">
+                      <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-sm">Shared workspace</span>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-sm">Group project management</span>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-sm">Collaborative notes</span>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-sm">Team analytics</span>
+                    </div>
+                  </div>
+                  <div className="space-y-3">
+                    <div className="flex items-start gap-3">
+                      <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-sm">Admin controls</span>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-sm">Priority chat support</span>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-sm">Volume discounts available</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </motion.div>
+            </div>
           </div>
 
           {/* Special Offers */}
-          <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">
+          <div className={`mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 ${isPricingBlurred ? 'blur-sm' : ''}`}>
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -379,7 +413,7 @@ export default function PricingPage() {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="mx-auto max-w-4xl"
+            className={`mx-auto max-w-4xl ${isPricingBlurred ? 'blur-sm' : ''}`}
           >
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
@@ -445,13 +479,13 @@ export default function PricingPage() {
                       <div className="rounded-lg border bg-background p-4">
                         <p className="font-medium">Per-Seat Pricing</p>
                         <p className="text-sm text-muted-foreground mt-1">
-                          Starting at $4/user/month for 1,000+ seats
+                          Starting at $2.5/user/month for 1,000+ seats
                         </p>
                       </div>
                       <div className="rounded-lg border bg-background p-4">
                         <p className="font-medium">Unlimited Site License</p>
                         <p className="text-sm text-muted-foreground mt-1">
-                          Fixed annual fee for unlimited users
+                          Fixed annual fee for up to 10,000 users
                         </p>
                       </div>
                       <div className="rounded-lg border bg-background p-4">
@@ -610,7 +644,7 @@ export default function PricingPage() {
                 href="/contact-sales"
                 className="inline-flex items-center rounded-lg border border-primary-foreground/20 bg-primary-foreground/10 px-8 py-4 text-lg font-semibold text-primary-foreground hover:bg-primary-foreground/20 transition-colors"
               >
-                Talk to Sales
+                Visit the repo
               </Link>
             </div>
           </motion.div>
