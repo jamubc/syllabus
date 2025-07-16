@@ -795,7 +795,7 @@ export default function ForProductivityPage() {
           </div>
           
           <div className="mt-8 border-t pt-8 text-center text-sm text-muted-foreground">
-            <p>&copy; 2025 Syllabus. Open source under MIT License.</p>
+            <p>&copy; 2025 Syllabus.</p>
           </div>
         </div>
       </footer>
