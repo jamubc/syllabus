@@ -774,7 +774,7 @@ export default function ForEducatorsPage() {
                 <span className="font-bold text-lg">Syllabus</span>
               </Link>
               <p className="text-sm text-muted-foreground">
-                AI-powered productivity for Canvas LMS
+                Not affiliated with Instructure or Canvas LMS
               </p>
             </div>
             

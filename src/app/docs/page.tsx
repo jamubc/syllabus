@@ -167,42 +167,42 @@ export default function DocsPage() {
                 className="rounded-lg border bg-card p-6"
               >
                 <div className="flex items-start gap-4">
-                  <div className="rounded-lg bg-primary/10 p-2">
+                  <div className="rounded-lg bg-primary/10 p-3">
                     <Key className="h-6 w-6 text-primary" />
                   </div>
-                  <div>
-                    <div className="flex items-center justify-between mb-2">
-                      <h3 className="font-semibold">Canvas API Token</h3>
+                  <div className="flex-1">
+                    <div className="flex items-center justify-between mb-3">
+                      <h3 className="font-semibold text-lg">Canvas API Token</h3>
                       <Link
                         href="https://canvas.instructure.com/doc/api/file.oauth.html"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group flex items-center gap-1 px-2 py-1 text-xs bg-blue-50 hover:bg-blue-100 border border-blue-200 rounded-md transition-colors"
+                        className="group inline-flex items-center gap-1 px-2 py-1 text-xs bg-primary/5 hover:bg-primary/10 border border-primary/20 rounded-md transition-colors"
                         aria-label="Learn about API safety"
                       >
-                        <HelpCircle className="h-3 w-3 text-blue-600" />
-                        <span className="text-blue-700 font-medium">API Safety</span>
-                        <ExternalLink className="h-3 w-3 text-blue-600 opacity-50 group-hover:opacity-100 transition-opacity" />
+                        <HelpCircle className="h-3 w-3 text-primary" />
+                        <span className="text-primary font-medium">Safety Guide</span>
+                        <ExternalLink className="h-3 w-3 text-primary opacity-70 group-hover:opacity-100 transition-opacity" />
                       </Link>
                     </div>
-                    <p className="text-sm text-muted-foreground mb-3">
+                    <p className="text-sm text-muted-foreground mb-4">
                       You'll need an API token from your Canvas account to enable the integration.
                     </p>
-                    <ol className="space-y-2 text-sm">
-                      <li className="flex items-start gap-2">
-                        <span className="text-primary font-medium">1.</span>
+                    <ol className="space-y-3 text-sm">
+                      <li className="flex items-center gap-3">
+                        <span className="flex h-6 w-6 items-center justify-center rounded-full bg-primary text-xs font-bold text-primary-foreground">1</span>
                         <span>Log in to your Canvas account</span>
                       </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-primary font-medium">2.</span>
+                      <li className="flex items-center gap-3">
+                        <span className="flex h-6 w-6 items-center justify-center rounded-full bg-primary text-xs font-bold text-primary-foreground">2</span>
                         <span>Go to Account → Settings</span>
                       </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-primary font-medium">3.</span>
+                      <li className="flex items-center gap-3">
+                        <span className="flex h-6 w-6 items-center justify-center rounded-full bg-primary text-xs font-bold text-primary-foreground">3</span>
                         <span>Click "+ New Access Token"</span>
                       </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-primary font-medium">4.</span>
+                      <li className="flex items-center gap-3">
+                        <span className="flex h-6 w-6 items-center justify-center rounded-full bg-primary text-xs font-bold text-primary-foreground">4</span>
                         <span>Save the token securely</span>
                       </li>
                     </ol>
@@ -820,7 +820,7 @@ export default function DocsPage() {
                 <span className="font-bold text-lg">Syllabus</span>
               </Link>
               <p className="text-sm text-muted-foreground">
-                AI-powered productivity for Canvas LMS
+Not affiliated with Instructure or Canvas LMS
               </p>
             </div>
             

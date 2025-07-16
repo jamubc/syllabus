@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   keywords: ["Canvas LMS", "AI Assistant", "MCP", "Model Context Protocol", "Academic Tools", "Student Success", "Faculty Productivity"],
   openGraph: {
     title: "Syllabus - AI Assistant for Canvas LMS",
-    description: "Study more, work less. AI-powered productivity for Canvas LMS.",
+    description: "Study more, work less. Not affiliated with Instructure or Canvas LMS.",
     url: "https://canvas-mcp-tool.com",
     siteName: "Syllabus",
     images: [
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Syllabus - AI Assistant for Canvas LMS",
-    description: "Study more, work less. AI-powered productivity for Canvas LMS.",
+    description: "Study more, work less. Not affiliated with Instructure or Canvas LMS.",
     images: ["/og-image.png"],
   },
   robots: {
