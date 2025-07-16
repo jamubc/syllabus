@@ -349,7 +349,7 @@ export default function DocsPage() {
                         <Copy className="h-4 w-4 opacity-50" />
                       </div>
                       <div className="flex items-center justify-between">
-                        <code className="text-sm">CANVAS_BASE_URL: https://canvas.instructure.com</code>
+                        <code className="text-sm">CANVAS_BASE_URL: https://yourschoolscanvasdomain.com</code>
                         <Copy className="h-4 w-4 opacity-50" />
                       </div>
                     </div>
@@ -454,7 +454,7 @@ export default function DocsPage() {
       "args": ["canvas-mcp-tool"],
       "env": {
         "CANVAS_API_TOKEN": "your_token_here",
-        "CANVAS_BASE_URL": "https://canvas.instructure.com"
+        "CANVAS_BASE_URL": "https://yourschoolscanvasdomain.com"
       }
     }
   }
@@ -526,7 +526,7 @@ export default function DocsPage() {
                     CANVAS_API_TOKEN=your_token CANVAS_BASE_URL=https://canvas.instructure.com npx canvas-mcp-tool
                   </code>
                   <button
-                    onClick={() => copyToClipboard("CANVAS_API_TOKEN=your_token CANVAS_BASE_URL=https://canvas.instructure.com npx canvas-mcp-tool", "npx-direct")}
+                    onClick={() => copyToClipboard("CANVAS_API_TOKEN=your_token CANVAS_BASE_URL=https://yourschoolscanvasdomain.com npx canvas-mcp-tool", "npx-direct")}
                     className="ml-4 rounded p-1 hover:bg-background"
                   >
                     {copiedCode === "npx-direct" ? (
