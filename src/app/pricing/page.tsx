@@ -136,15 +136,15 @@ export default function PricingPage() {
         <div className="container mx-auto px-4">
           <div className="relative">
             {isPricingBlurred && (
-              <div className="absolute inset-0 z-40 flex items-center justify-center bg-background/50 backdrop-blur-sm">
-                <div className="rounded-2xl bg-background/95 border-2 px-8 py-6 text-center shadow-xl">
-                  <h3 className="text-2xl font-bold mb-2">Coming Soon</h3>
-                  <p className="text-muted-foreground">
+              <div className="absolute inset-0 z-40 flex items-center justify-center">
+                <div className="rounded-2xl bg-background border-2 p-8 text-center shadow-2xl">
+                  <h3 className="text-2xl font-bold">Coming Soon</h3>
+                  <p className="text-muted-foreground mt-3 mb-6">
                     Pricing details are being finalized. Try the beta for free!
                   </p>
                   <Link
                     href="/docs/quickstart"
-                    className="mt-4 inline-flex items-center rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors"
+                    className="inline-flex items-center rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors"
                   >
                     Try the beta
                     <ArrowRight className="ml-1 h-4 w-4" />
@@ -152,7 +152,7 @@ export default function PricingPage() {
                 </div>
               </div>
             )}
-            <div className={`grid grid-cols-1 gap-8 lg:grid-cols-3 ${isPricingBlurred ? 'blur-md pointer-events-none' : ''}`}>
+            <div className="grid grid-cols-1 gap-8 lg:grid-cols-3 transition-all duration-300" style={isPricingBlurred ? { filter: 'blur(20px)', opacity: 0.3, pointerEvents: 'none' } : {}}>
             {/* Free Tier */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -240,7 +240,7 @@ export default function PricingPage() {
                 <h3 className="text-2xl font-bold">Pro</h3>
                 <p className="mt-2 text-muted-foreground">For serious students</p>
                 <div className="mt-4">
-                  <span className="text-4xl font-bold">$12</span>
+                  <span className="text-4xl font-bold">$10</span>
                   <span className="text-muted-foreground">/month</span>
                 </div>
               </div>
@@ -362,7 +362,7 @@ export default function PricingPage() {
           </div>
 
           {/* Special Offers */}
-          <div className={`mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 ${isPricingBlurred ? 'blur-md pointer-events-none' : ''}`}>
+          <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 transition-all duration-300" style={isPricingBlurred ? { filter: 'blur(20px)', opacity: 0.3, pointerEvents: 'none' } : {}}>
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -419,15 +419,15 @@ export default function PricingPage() {
         <div className="container mx-auto px-4">
           <div className="relative mx-auto max-w-4xl">
             {isPricingBlurred && (
-              <div className="absolute inset-0 z-40 flex items-center justify-center bg-background/50 backdrop-blur-sm">
-                <div className="rounded-2xl bg-background/95 border-2 px-8 py-6 text-center shadow-xl">
-                  <h3 className="text-2xl font-bold mb-2">Coming Soon</h3>
-                  <p className="text-muted-foreground">
+              <div className="absolute inset-0 z-40 flex items-center justify-center">
+                <div className="rounded-2xl bg-background border-2 p-8 text-center shadow-2xl">
+                  <h3 className="text-2xl font-bold">Coming Soon</h3>
+                  <p className="text-muted-foreground mt-3 mb-6">
                     Enterprise pricing details are being finalized.
                   </p>
                   <Link
                     href="/docs/quickstart"
-                    className="mt-4 inline-flex items-center rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors"
+                    className="inline-flex items-center rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors"
                   >
                     Try the beta
                     <ArrowRight className="ml-1 h-4 w-4" />
@@ -440,7 +440,8 @@ export default function PricingPage() {
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
-              className={isPricingBlurred ? 'blur-md pointer-events-none' : ''}
+              className="transition-all duration-300"
+              style={isPricingBlurred ? { filter: 'blur(20px)', opacity: 0.3, pointerEvents: 'none' } : {}}
             >
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
@@ -584,33 +585,7 @@ export default function PricingPage() {
             >
               <h3 className="font-semibold mb-2">How do I get the free Pro plan with my .edu email?</h3>
               <p className="text-muted-foreground">
-                Simply sign up with your university email address (.edu) and the Pro plan will be automatically applied to your account for free. No credit card required.
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="rounded-lg border bg-card p-6"
-            >
-              <h3 className="font-semibold mb-2">Can I switch between plans?</h3>
-              <p className="text-muted-foreground">
-                Yes! You can upgrade or downgrade your plan at any time. Changes take effect immediately, and we'll prorate any payments.
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              viewport={{ once: true }}
-              className="rounded-lg border bg-card p-6"
-            >
-              <h3 className="font-semibold mb-2">What happens when I graduate?</h3>
-              <p className="text-muted-foreground">
-                You can keep using Syllabus! Your free Pro access continues for 6 months after graduation. After that, you can continue with the regular Pro plan or switch to Free.
+                Simply sign up with your UBC email address and the Pro plan will be automatically applied to your account for free. No credit card required, subject to rate limits.
               </p>
             </motion.div>
 
@@ -623,7 +598,7 @@ export default function PricingPage() {
             >
               <h3 className="font-semibold mb-2">Do you offer discounts for non-profits?</h3>
               <p className="text-muted-foreground">
-                Yes! Non-profit organizations and educational institutions qualify for special pricing. Contact our sales team for details.
+                Yes! Non-profit organizations and educational institutions qualify for special pricing, or free if we can support accessibility in learning.
               </p>
             </motion.div>
 
@@ -634,9 +609,9 @@ export default function PricingPage() {
               viewport={{ once: true }}
               className="rounded-lg border bg-card p-6"
             >
-              <h3 className="font-semibold mb-2">Is there a limit on AI usage?</h3>
+              <h3 className="font-semibold mb-2">Is there a limit on usage?</h3>
               <p className="text-muted-foreground">
-                The Free plan includes 50 AI queries per month. Pro and Team plans have unlimited AI queries. Institution plans can be customized based on your needs.
+                The Free plan includes 100 queries per day. Paid plans are unlimited. Institution plans can be customized based on your needs.
               </p>
             </motion.div>
           </div>
