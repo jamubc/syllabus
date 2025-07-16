@@ -153,10 +153,10 @@ export default function FeaturesPage() {
             className="mx-auto max-w-2xl text-center mb-16"
           >
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-              Core Canvas Integration
+              Core Oriented
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              Deep integration with Canvas LMS for seamless academic management
+              Deep integration with Canvas for seamless performance
             </p>
           </motion.div>
 
@@ -534,7 +534,7 @@ export default function FeaturesPage() {
               Technical Excellence
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              Built with modern architecture for reliability and performance
+              Built with MCP standards for reliability, performance and flexibility
             </p>
           </motion.div>
 
@@ -631,14 +631,14 @@ export default function FeaturesPage() {
                   <tr className="border-b bg-muted/50">
                     <th className="px-6 py-4 text-left font-semibold">Feature</th>
                     <th className="px-6 py-4 text-center font-semibold">Canvas Alone</th>
-                    <th className="px-6 py-4 text-center font-semibold text-primary">With Canvas MCP</th>
+                    <th className="px-6 py-4 text-center font-semibold text-primary">With Syllabus</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y">
                   <tr>
                     <td className="px-6 py-4">Assignment Management</td>
                     <td className="px-6 py-4 text-center text-muted-foreground">Manual checking</td>
-                    <td className="px-6 py-4 text-center text-primary font-medium">AI-powered tracking</td>
+                    <td className="px-6 py-4 text-center text-primary font-medium">Instant checking</td>
                   </tr>
                   <tr>
                     <td className="px-6 py-4">Content Search</td>

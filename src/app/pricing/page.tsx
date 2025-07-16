@@ -110,10 +110,19 @@ export default function PricingPage() {
             transition={{ duration: 0.5 }}
             className="mx-auto max-w-4xl text-center"
           >
-            <h1 className="text-4xl font-bold tracking-tight sm:text-6xl lg:text-7xl">
-              Simple, Transparent Pricing
-              <span className="block text-primary">For Everyone</span>
-            </h1>
+            <div className="space-y-4">
+              <div className="flex items-baseline justify-center gap-4 flex-wrap">
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light text-foreground">
+                  Simple, <span className="text-primary font-bold">transparent</span>
+                </h1>
+                <span className="text-4xl sm:text-5xl lg:text-6xl font-light text-foreground">
+                  pricing
+                </span>
+              </div>
+              <div className="text-lg sm:text-xl text-muted-foreground font-medium">
+                For <span className="text-primary">students</span> by <span className="text-primary">students</span>
+              </div>
+            </div>
             
             <p className="mt-6 text-lg leading-8 text-muted-foreground sm:text-xl">
               Start free, upgrade when you need more. Special pricing for students and institutions.
@@ -127,8 +136,8 @@ export default function PricingPage() {
         <div className="container mx-auto px-4">
           <div className="relative">
             {isPricingBlurred && (
-              <div className="absolute inset-0 z-10 flex items-center justify-center">
-                <div className="rounded-2xl bg-background/90 backdrop-blur-sm border px-8 py-6 text-center shadow-lg">
+              <div className="absolute inset-0 z-40 flex items-center justify-center bg-background/50 backdrop-blur-sm">
+                <div className="rounded-2xl bg-background/95 border-2 px-8 py-6 text-center shadow-xl">
                   <h3 className="text-2xl font-bold mb-2">Coming Soon</h3>
                   <p className="text-muted-foreground">
                     Pricing details are being finalized. Try the beta for free!
@@ -143,7 +152,7 @@ export default function PricingPage() {
                 </div>
               </div>
             )}
-            <div className={`grid grid-cols-1 gap-8 lg:grid-cols-3 ${isPricingBlurred ? 'blur-sm' : ''}`}>
+            <div className={`grid grid-cols-1 gap-8 lg:grid-cols-3 ${isPricingBlurred ? 'blur-md pointer-events-none' : ''}`}>
             {/* Free Tier */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -353,7 +362,7 @@ export default function PricingPage() {
           </div>
 
           {/* Special Offers */}
-          <div className={`mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 ${isPricingBlurred ? 'blur-sm' : ''}`}>
+          <div className={`mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 ${isPricingBlurred ? 'blur-md pointer-events-none' : ''}`}>
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -408,13 +417,31 @@ export default function PricingPage() {
       {/* Institution Pricing */}
       <section className="py-20 lg:py-32 bg-secondary/30">
         <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className={`mx-auto max-w-4xl ${isPricingBlurred ? 'blur-sm' : ''}`}
-          >
+          <div className="relative mx-auto max-w-4xl">
+            {isPricingBlurred && (
+              <div className="absolute inset-0 z-40 flex items-center justify-center bg-background/50 backdrop-blur-sm">
+                <div className="rounded-2xl bg-background/95 border-2 px-8 py-6 text-center shadow-xl">
+                  <h3 className="text-2xl font-bold mb-2">Coming Soon</h3>
+                  <p className="text-muted-foreground">
+                    Enterprise pricing details are being finalized.
+                  </p>
+                  <Link
+                    href="/docs/quickstart"
+                    className="mt-4 inline-flex items-center rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors"
+                  >
+                    Try the beta
+                    <ArrowRight className="ml-1 h-4 w-4" />
+                  </Link>
+                </div>
+              </div>
+            )}
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className={isPricingBlurred ? 'blur-md pointer-events-none' : ''}
+            >
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
                 Institution & Enterprise Plans
@@ -502,7 +529,7 @@ export default function PricingPage() {
                         <div>
                           <p className="font-medium text-sm">Free Pilot Program</p>
                           <p className="text-sm text-muted-foreground mt-1">
-                            Try Syllabus with a department or college for 30 days, no commitment required.
+                            Try Syllabus with a department or college for 3 days, up to 1000 students, no commitment.
                           </p>
                         </div>
                       </div>
@@ -528,6 +555,7 @@ export default function PricingPage() {
               </div>
             </div>
           </motion.div>
+          </div>
         </div>
       </section>
 
@@ -626,7 +654,7 @@ export default function PricingPage() {
             className="mx-auto max-w-3xl text-center"
           >
             <h2 className="text-3xl font-bold tracking-tight text-primary-foreground sm:text-4xl">
-              Start Your Academic Transformation Today
+              Study more, Work less.
             </h2>
             <p className="mt-4 text-lg text-primary-foreground/90">
               Join thousands of students and educators already succeeding with Syllabus

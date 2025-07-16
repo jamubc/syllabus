@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from "@vercel/analytics/next";
+import { AnimationProvider } from "@/components/AnimationProvider";
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -63,7 +64,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <AnimationProvider>
+            {children}
+          </AnimationProvider>
           <Analytics />
         </ThemeProvider>
       </body>

@@ -23,11 +23,28 @@ import {
   HelpCircle
 } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { AnimatedSection } from "@/components/AnimatedSection";
+import { animationConfig, fadeInUp, fadeIn, fadeInLeft, fadeInRight, scaleIn } from "@/lib/animation-config";
 
 export default function DocsPage() {
   const [copiedCode, setCopiedCode] = useState<string | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [hasScrolledToHash, setHasScrolledToHash] = useState(false);
+  
+  useEffect(() => {
+    // Handle hash navigation on page load
+    if (window.location.hash) {
+      const timer = setTimeout(() => {
+        const element = document.getElementById(window.location.hash.slice(1));
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+          setHasScrolledToHash(true);
+        }
+      }, 100);
+      return () => clearTimeout(timer);
+    }
+  }, []);
   
   const navigationItems = [
     { href: "/features", label: "Features" },
@@ -111,12 +128,7 @@ export default function DocsPage() {
       <section className="relative overflow-hidden pt-32 pb-20 lg:pt-40 lg:pb-32">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5" />
         <div className="container relative mx-auto px-4">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="mx-auto max-w-4xl text-center"
-          >
+          <AnimatedSection className="mx-auto max-w-4xl text-center" direction="up">
             <h1 className="text-4xl font-bold tracking-tight sm:text-6xl lg:text-7xl">
               Getting Started with
               <span className="block text-primary">Syllabus</span>
@@ -142,30 +154,18 @@ export default function DocsPage() {
                 Full Documentation
               </a>
             </div>
-          </motion.div>
+          </AnimatedSection>
         </div>
       </section>
 
       {/* Prerequisites */}
       <section className="py-20 lg:py-32 bg-secondary/30">
         <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="mx-auto max-w-4xl"
-          >
+          <AnimatedSection className="mx-auto max-w-4xl" direction="none">
             <h2 className="text-3xl font-bold mb-8">Before You Begin</h2>
             
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                viewport={{ once: true }}
-                className="rounded-lg border bg-card p-6"
-              >
+              <AnimatedSection className="rounded-lg border bg-card p-6" delay={0.1}>
                 <div className="flex items-start gap-4">
                   <div className="rounded-lg bg-primary/10 p-3">
                     <Key className="h-6 w-6 text-primary" />
@@ -208,15 +208,9 @@ export default function DocsPage() {
                     </ol>
                   </div>
                 </div>
-              </motion.div>
+              </AnimatedSection>
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                viewport={{ once: true }}
-                className="rounded-lg border bg-card p-6"
-              >
+              <AnimatedSection className="rounded-lg border bg-card p-6" delay={0.2}>
                 <div className="flex items-start gap-4">
                   <div className="rounded-lg bg-primary/10 p-2">
                     <Terminal className="h-6 w-6 text-primary" />
@@ -242,22 +236,16 @@ export default function DocsPage() {
                     </ul>
                   </div>
                 </div>
-              </motion.div>
+              </AnimatedSection>
             </div>
-          </motion.div>
+          </AnimatedSection>
         </div>
       </section>
 
       {/* Quick Start Guide */}
       <section id="quickstart" className="py-20 lg:py-32">
         <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="mx-auto max-w-4xl"
-          >
+          <AnimatedSection className="mx-auto max-w-4xl" direction="none">
             <h2 className="text-3xl font-bold mb-8">Quick Start Guide</h2>
 
             {/* Method 1: Claude Code (Recommended) */}
@@ -268,13 +256,7 @@ export default function DocsPage() {
               </h3>
               
               <div className="space-y-6">
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: 0.1 }}
-                  viewport={{ once: true }}
-                  className="relative"
-                >
+                <AnimatedSection className="relative" direction="left" delay={0.1}>
                   <h4 className="font-semibold mb-3 flex items-center gap-2">
                     <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-sm font-bold text-primary-foreground">
                       1
@@ -296,15 +278,9 @@ export default function DocsPage() {
                       </button>
                     </div>
                   </div>
-                </motion.div>
+                </AnimatedSection>
 
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                  viewport={{ once: true }}
-                  className="relative"
-                >
+                <AnimatedSection className="relative" direction="left" delay={0.2}>
                   <h4 className="font-semibold mb-3 flex items-center gap-2">
                     <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-sm font-bold text-primary-foreground">
                       2
@@ -326,15 +302,9 @@ export default function DocsPage() {
                       </button>
                     </div>
                   </div>
-                </motion.div>
+                </AnimatedSection>
 
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: 0.3 }}
-                  viewport={{ once: true }}
-                  className="relative"
-                >
+                <AnimatedSection className="relative" direction="left" delay={0.3}>
                   <h4 className="font-semibold mb-3 flex items-center gap-2">
                     <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-sm font-bold text-primary-foreground">
                       3
@@ -357,15 +327,9 @@ export default function DocsPage() {
                       Replace with your institution's Canvas URL if different
                     </p>
                   </div>
-                </motion.div>
+                </AnimatedSection>
 
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: 0.4 }}
-                  viewport={{ once: true }}
-                  className="relative"
-                >
+                <AnimatedSection className="relative" direction="left" delay={0.4}>
                   <h4 className="font-semibold mb-3 flex items-center gap-2">
                     <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-sm font-bold text-primary-foreground">
                       4
@@ -387,7 +351,7 @@ export default function DocsPage() {
                       </button>
                     </div>
                   </div>
-                </motion.div>
+                </AnimatedSection>
               </div>
             </div>
 
@@ -399,13 +363,7 @@ export default function DocsPage() {
               </h3>
               
               <div className="space-y-6">
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: 0.1 }}
-                  viewport={{ once: true }}
-                  className="relative"
-                >
+                <AnimatedSection className="relative" direction="left" delay={0.1}>
                   <h4 className="font-semibold mb-3 flex items-center gap-2">
                     <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-sm font-bold text-primary-foreground">
                       1
@@ -430,15 +388,9 @@ export default function DocsPage() {
                       </div>
                     </div>
                   </div>
-                </motion.div>
+                </AnimatedSection>
 
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                  viewport={{ once: true }}
-                  className="relative"
-                >
+                <AnimatedSection className="relative" direction="left" delay={0.2}>
                   <h4 className="font-semibold mb-3 flex items-center gap-2">
                     <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-sm font-bold text-primary-foreground">
                       2
@@ -461,15 +413,9 @@ export default function DocsPage() {
 }`}
                     </pre>
                   </div>
-                </motion.div>
+                </AnimatedSection>
 
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: 0.3 }}
-                  viewport={{ once: true }}
-                  className="relative"
-                >
+                <AnimatedSection className="relative" direction="left" delay={0.3}>
                   <h4 className="font-semibold mb-3 flex items-center gap-2">
                     <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-sm font-bold text-primary-foreground">
                       3
@@ -481,7 +427,7 @@ export default function DocsPage() {
                       Quit and reopen Claude Desktop to load the new configuration.
                     </p>
                   </div>
-                </motion.div>
+                </AnimatedSection>
               </div>
             </div>
 
@@ -541,20 +487,14 @@ export default function DocsPage() {
                 Use this method for testing or integration with other MCP-compatible tools.
               </p>
             </div>
-          </motion.div>
+          </AnimatedSection>
         </div>
       </section>
 
       {/* Example Queries */}
       <section className="py-20 lg:py-32 bg-secondary/30">
         <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="mx-auto max-w-4xl"
-          >
+          <AnimatedSection className="mx-auto max-w-4xl" direction="none">
             <h2 className="text-3xl font-bold mb-8">Example Queries</h2>
             <p className="text-lg text-muted-foreground mb-12">
               Once connected, try these natural language queries with your AI assistant:
@@ -573,8 +513,8 @@ export default function DocsPage() {
               ].map((example, i) => (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
+                  initial={scaleIn.hidden}
+                  whileInView={scaleIn.visible}
                   transition={{ duration: 0.3, delay: i * 0.1 }}
                   viewport={{ once: true }}
                   className="flex items-center gap-3 rounded-lg border bg-card p-4 hover:shadow-md transition-shadow cursor-pointer"
@@ -584,20 +524,14 @@ export default function DocsPage() {
                 </motion.div>
               ))}
             </div>
-          </motion.div>
+          </AnimatedSection>
         </div>
       </section>
 
       {/* Advanced Configuration */}
       <section className="py-20 lg:py-32">
         <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="mx-auto max-w-4xl"
-          >
+          <AnimatedSection className="mx-auto max-w-4xl" direction="none">
             <h2 className="text-3xl font-bold mb-8">Advanced Configuration</h2>
 
             <div className="space-y-8">
@@ -682,20 +616,14 @@ export default function DocsPage() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </AnimatedSection>
         </div>
       </section>
 
       {/* Troubleshooting */}
       <section className="py-20 lg:py-32 bg-secondary/30">
         <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="mx-auto max-w-4xl"
-          >
+          <AnimatedSection className="mx-auto max-w-4xl" direction="none">
             <h2 className="text-3xl font-bold mb-8">Troubleshooting</h2>
 
             <div className="space-y-4">
@@ -744,18 +672,19 @@ export default function DocsPage() {
                 </a>
               </div>
             </div>
-          </motion.div>
+          </AnimatedSection>
         </div>
       </section>
 
       {/* Next Steps */}
       <section className="py-20 lg:py-32">
         <div className="container mx-auto px-4">
-          <motion.div
+          <AnimatedSection
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-10%" }}
             className="mx-auto max-w-4xl text-center"
           >
             <h2 className="text-3xl font-bold mb-8">Next Steps</h2>
@@ -806,7 +735,7 @@ export default function DocsPage() {
                 </span>
               </a>
             </div>
-          </motion.div>
+          </AnimatedSection>
         </div>
       </section>
 
