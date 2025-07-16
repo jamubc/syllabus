@@ -611,7 +611,7 @@ export default function ForStudentsPage() {
                 href="/docs/quickstart"
                 className="inline-flex items-center rounded-lg bg-background px-8 py-4 text-lg font-semibold text-foreground hover:bg-secondary transition-colors group"
               >
-                Start Free with .edu Email
+                Try the beta
                 <Zap className="ml-2 h-5 w-5 group-hover:rotate-12 transition-transform" />
               </Link>
               

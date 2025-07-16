@@ -115,7 +115,7 @@ export default function FeaturesPage() {
             className="mx-auto max-w-4xl text-center"
           >
             <h1 className="text-4xl font-bold tracking-tight sm:text-6xl lg:text-7xl">
-              Every Feature You Need for
+              Features built for
               <span className="block text-primary">Academic Success</span>
             </h1>
             
@@ -128,7 +128,7 @@ export default function FeaturesPage() {
                 href="/docs/quickstart"
                 className="group inline-flex items-center rounded-lg bg-primary px-8 py-4 text-lg font-semibold text-primary-foreground hover:bg-primary/90 transition-all"
               >
-                Start Free Trial
+                Try the beta
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
@@ -695,7 +695,7 @@ export default function FeaturesPage() {
                   href="/docs/quickstart"
                   className="inline-flex items-center rounded-lg bg-background px-6 py-3 text-base font-semibold text-foreground hover:bg-secondary transition-colors"
                 >
-                  Start Free Trial
+                  Try the beta
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
                 <Link

@@ -119,7 +119,7 @@ export default function HomePage() {
                 href="/docs/quickstart"
                 className="group inline-flex items-center rounded-lg bg-primary px-6 py-3 text-base font-semibold text-primary-foreground hover:bg-primary/90 transition-all"
               >
-                Get Started Free
+                Try the beta
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
@@ -391,7 +391,7 @@ export default function HomePage() {
                   href="/docs/quickstart"
                   className="inline-flex items-center rounded-lg bg-background px-6 py-3 text-base font-semibold text-foreground hover:bg-secondary transition-colors"
                 >
-                  Get Started Free
+                  Try the beta
                   <Sparkles className="ml-2 h-4 w-4" />
                 </Link>
                 <Link

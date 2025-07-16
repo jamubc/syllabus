@@ -138,7 +138,7 @@ export default function ForEducatorsPage() {
                 href="/docs/pilot"
                 className="inline-flex items-center rounded-lg border border-border bg-background px-8 py-4 text-lg font-semibold hover:bg-secondary transition-colors"
               >
-                Start Free Pilot
+                Try the beta
               </Link>
             </div>
 
@@ -753,7 +753,7 @@ export default function ForEducatorsPage() {
                 href="/docs/pilot"
                 className="inline-flex items-center rounded-lg border border-primary-foreground/20 bg-primary-foreground/10 px-8 py-4 text-lg font-semibold text-primary-foreground hover:bg-primary-foreground/20 transition-colors"
               >
-                Start Free Pilot
+                Try the beta
               </Link>
             </div>
             

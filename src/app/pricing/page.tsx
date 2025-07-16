@@ -94,13 +94,8 @@ export default function PricingPage() {
         </div>
       </header>
 
-      {/* Coming Soon Overlay */}
-      <div className="fixed inset-0 top-16 z-40 bg-background/80 backdrop-blur-sm flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold mb-4">Coming Soon!</h1>
-          {/* <p className="text-muted-foreground">We're working on our pricing page.</p> */}
-        </div>
-      </div>
+    
+
 
       {/* Hero Section */}
       <section className="relative overflow-hidden pt-32 pb-20 lg:pt-40 lg:pb-32">
@@ -137,11 +132,15 @@ export default function PricingPage() {
               className="relative rounded-2xl border bg-card p-8"
             >
               <div className="mb-6">
-                <h3 className="text-2xl font-bold">Free</h3>
+                <h3 className="text-2xl font-bold">Free, With a UBC student email</h3>
                 <p className="mt-2 text-muted-foreground">Perfect for getting started</p>
                 <div className="mt-4">
                   <span className="text-4xl font-bold">$0</span>
                   <span className="text-muted-foreground">/month</span>
+                </div>
+                <div className="mt-2 inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
+                  <Sparkles className="h-4 w-4" />
+                  Free with .edu emails
                 </div>
               </div>
 
@@ -149,7 +148,7 @@ export default function PricingPage() {
                 href="/docs/quickstart"
                 className="w-full mb-6 inline-flex items-center justify-center rounded-lg border border-border bg-background px-4 py-3 text-base font-semibold hover:bg-secondary transition-colors"
               >
-                Start Free
+                Try the beta
               </Link>
 
               <div className="space-y-4">
@@ -157,7 +156,7 @@ export default function PricingPage() {
                 <ul className="space-y-3">
                   <li className="flex items-start gap-3">
                     <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span className="text-sm">Basic Canvas integration</span>
+                    <span className="text-sm">Canvas integration</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
@@ -210,17 +209,13 @@ export default function PricingPage() {
                   <span className="text-4xl font-bold">$12</span>
                   <span className="text-muted-foreground">/month</span>
                 </div>
-                <div className="mt-2 inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
-                  <Sparkles className="h-4 w-4" />
-                  Free for .edu emails
-                </div>
               </div>
 
               <Link
                 href="/docs/quickstart"
                 className="w-full mb-6 inline-flex items-center justify-center rounded-lg bg-primary px-4 py-3 text-base font-semibold text-primary-foreground hover:bg-primary/90 transition-colors"
               >
-                Get Pro Free with .edu
+                Get Pro
               </Link>
 
               <div className="space-y-4">
@@ -274,10 +269,10 @@ export default function PricingPage() {
                 <h3 className="text-2xl font-bold">Team</h3>
                 <p className="mt-2 text-muted-foreground">For study groups & clubs</p>
                 <div className="mt-4">
-                  <span className="text-4xl font-bold">$8</span>
+                  <span className="text-4xl font-bold">$5</span>
                   <span className="text-muted-foreground">/user/month</span>
                 </div>
-                <p className="mt-2 text-sm text-muted-foreground">Minimum 5 users</p>
+                <p className="mt-2 text-sm text-muted-foreground">Minimum 4 users</p>
               </div>
 
               <Link
@@ -492,7 +487,7 @@ export default function PricingPage() {
                       href="/docs/pilot"
                       className="w-full inline-flex items-center justify-center rounded-lg border border-border bg-background px-6 py-3 text-base font-semibold hover:bg-secondary transition-colors"
                     >
-                      Start Free Pilot
+                      Try the beta
                     </Link>
                   </div>
                 </div>
@@ -608,7 +603,7 @@ export default function PricingPage() {
                 href="/docs/quickstart"
                 className="inline-flex items-center rounded-lg bg-background px-8 py-4 text-lg font-semibold text-foreground hover:bg-secondary transition-colors group"
               >
-                Get Started Free
+                Try the beta
                 <Sparkles className="ml-2 h-5 w-5 group-hover:rotate-12 transition-transform" />
               </Link>
               <Link

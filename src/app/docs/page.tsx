@@ -237,7 +237,7 @@ export default function DocsPage() {
                       </li>
                       <li className="flex items-center gap-2">
                         <Check className="h-4 w-4 text-primary" />
-                        <span>Gemini CLI</span>
+                        <span>Gemini CLI (Not fully stable) </span>
                       </li>
                     </ul>
                   </div>
@@ -412,12 +412,23 @@ export default function DocsPage() {
                     </span>
                     Open Claude Desktop Configuration
                   </h4>
-                  <div className="ml-10 space-y-2 text-sm">
-                    <p className="text-muted-foreground">Navigate to:</p>
-                    <div className="rounded-lg bg-muted p-3">
-                      <code className="text-xs">~/Library/Application Support/Claude/claude_desktop_config.json</code>
+                  <div className="ml-10 space-y-4 text-sm">
+                    <div>
+                      <p className="text-muted-foreground mb-2">Navigate to:</p>
+                      <div className="rounded-lg bg-muted p-3 space-y-1">
+                        <div><code className="text-xs">macOS: ~/Library/Application\ Support/Claude/claude_desktop_config.json</code></div>
+                        <div><code className="text-xs">Windows: %APPDATA%\Claude\claude_desktop_config.json</code></div>
+                      </div>
                     </div>
-                    <p className="text-xs text-muted-foreground">On Windows: %APPDATA%/Claude/</p>
+                    
+                    <div className="mt-4 rounded-lg bg-primary/5 border border-primary/20 p-3">
+                      <p className="text-xs text-muted-foreground mb-2">
+                        <strong>Tip:</strong> Import existing Claude Desktop MCPs to Claude Code
+                      </p>
+                      <div className="rounded bg-muted p-2">
+                        <code className="text-xs">claude mcp add-from-claude-desktop</code>
+                      </div>
+                    </div>
                   </div>
                 </motion.div>
 
@@ -471,6 +482,34 @@ export default function DocsPage() {
                     </p>
                   </div>
                 </motion.div>
+              </div>
+            </div>
+
+            {/* Configuration Reference */}
+            <div className="mb-12">
+              <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
+                <FileCode className="h-5 w-5 text-primary" />
+                Configuration File Reference
+              </h3>
+              
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                <div className="rounded-lg border bg-card p-4">
+                  <h4 className="font-semibold mb-2">Claude Code Settings</h4>
+                  <ul className="space-y-1 text-sm text-muted-foreground">
+                    <li>• <code className="text-xs">~/.claude/settings.json</code> (user)</li>
+                    <li>• <code className="text-xs">.claude/settings.json</code> (project)</li>
+                    <li>• <code className="text-xs">.claude/settings.local.json</code> (local)</li>
+                  </ul>
+                </div>
+                
+                <div className="rounded-lg border bg-card p-4">
+                  <h4 className="font-semibold mb-2">Managed Settings</h4>
+                  <ul className="space-y-1 text-sm text-muted-foreground">
+                    <li>• <code className="text-xs">macOS: /Library/Application Support/ClaudeCode/</code></li>
+                    <li>• <code className="text-xs">Linux: /etc/claude-code/</code></li>
+                    <li>• <code className="text-xs">Windows: C:\ProgramData\ClaudeCode\</code></li>
+                  </ul>
+                </div>
               </div>
             </div>
 
