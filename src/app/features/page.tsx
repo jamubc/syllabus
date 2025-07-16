@@ -567,7 +567,7 @@ export default function FeaturesPage() {
               </div>
               <h3 className="text-lg font-semibold mb-2">Enterprise Security</h3>
               <p className="text-sm text-muted-foreground">
-                FERPA compliant with secure API token management and encrypted storage
+                Privacy-first with secure API token management and encrypted storage
               </p>
             </motion.div>
 

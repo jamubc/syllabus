@@ -483,7 +483,7 @@ export default function PricingPage() {
                     </div>
                     <div className="flex items-start gap-3">
                       <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span>FERPA compliant with data security</span>
+                      <span>Privacy-first with data security</span>
                     </div>
                     <div className="flex items-start gap-3">
                       <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
@@ -585,7 +585,7 @@ export default function PricingPage() {
             >
               <h3 className="font-semibold mb-2">How do I get the free Pro plan with my .edu email?</h3>
               <p className="text-muted-foreground">
-                Simply sign up with your UBC email address and the Pro plan will be automatically applied to your account for free. No credit card required, subject to rate limits.
+                Simply sign up with your UBC email address and the Pro plan will be automatically applied to your account for free. No credit card required. Subject to rate limits.
               </p>
             </motion.div>
 
@@ -598,7 +598,7 @@ export default function PricingPage() {
             >
               <h3 className="font-semibold mb-2">Do you offer discounts for non-profits?</h3>
               <p className="text-muted-foreground">
-                Yes! Non-profit organizations and educational institutions qualify for special pricing, or free if we can support accessibility in learning.
+                Yes! Non-profit organizations and educational institutions qualify for special pricing or free access if we can support accessibility in learning.
               </p>
             </motion.div>
 

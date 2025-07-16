@@ -137,7 +137,7 @@ export default function HomePage() {
             <div className="mt-10 flex items-center justify-center gap-8 text-sm text-muted-foreground">
               <div className="flex items-center gap-2">
                 <Shield className="h-4 w-4" />
-                <span>FERPA Compliant</span>
+                <span>Privacy First</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle className="h-4 w-4" />
@@ -145,7 +145,7 @@ export default function HomePage() {
               </div>
               <div className="flex items-center gap-2">
                 <Users className="h-4 w-4" />
-                <span>Free for .edu</span>
+                <span>Free for UBC students during beta</span>
               </div>
             </div>
           </motion.div>
@@ -311,7 +311,7 @@ export default function HomePage() {
               </div>
               <h3 className="text-lg font-semibold mb-2">Enterprise Security</h3>
               <p className="text-muted-foreground">
-                FERPA compliant with enterprise-grade encryption and controls
+                Privacy-first with enterprise-grade encryption and controls
               </p>
             </motion.div>
 
