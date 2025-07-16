@@ -219,7 +219,7 @@ export default function ForProductivityPage() {
                   <li className="flex items-start gap-3">
                     <CheckCircle className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
                     <p className="text-muted-foreground">
-                      <span className="font-medium text-foreground">Unified context:</span> AI understands your entire workspace automatically
+                      <span className="font-medium text-foreground">Unified context:</span> AI understands your entire canvas automatically
                     </p>
                   </li>
                   <li className="flex items-start gap-3">
@@ -613,7 +613,7 @@ export default function ForProductivityPage() {
                     <h3 className="font-semibold mb-1">Ali Abdaal</h3>
                     <p className="text-sm text-muted-foreground mb-3">Productivity YouTuber • 5M+ subscribers</p>
                     <p className="text-muted-foreground italic">
-                      "This is the missing piece in my productivity stack. The MCP integration finally lets AI understand my entire system without the friction."
+                      "This is the missing piece in my productivity stack. The MCP integration finally lets AI understand all my courses without the friction."
                     </p>
                   </div>
                 </div>
@@ -655,7 +655,7 @@ export default function ForProductivityPage() {
                     <h3 className="font-semibold mb-1">Keep Productive</h3>
                     <p className="text-sm text-muted-foreground mb-3">Francesco D'Alessio • Tool Reviews</p>
                     <p className="text-muted-foreground italic">
-                      "In my 10 years of reviewing productivity tools, this is the most significant advancement I've seen in AI integration."
+                      "In my 10 years of reviewing productivity tools, this is the most significant advancement I've seen in AI integration for education."
                     </p>
                   </div>
                 </div>
@@ -691,12 +691,6 @@ export default function ForProductivityPage() {
                   className="inline-flex items-center rounded-lg border border-border bg-background px-6 py-3 text-base font-semibold hover:bg-secondary transition-colors"
                 >
                   Join Discord Community
-                </a>
-                <a
-                  href="https://reddit.com/r/canvas-mcp"
-                  className="inline-flex items-center rounded-lg border border-border bg-background px-6 py-3 text-base font-semibold hover:bg-secondary transition-colors"
-                >
-                  Visit r/canvas-mcp
                 </a>
               </div>
             </div>
@@ -795,9 +789,7 @@ export default function ForProductivityPage() {
             <div>
               <h3 className="font-semibold mb-4">Community</h3>
               <ul className="space-y-2 text-sm">
-                <li><a href="https://discord.gg/canvas-mcp" className="text-muted-foreground hover:text-foreground">Discord</a></li>
-                <li><a href="https://reddit.com/r/canvas-mcp" className="text-muted-foreground hover:text-foreground">Reddit</a></li>
-                <li><a href="#" className="text-muted-foreground hover:text-foreground">Twitter</a></li>
+                <li><a href="https://github.com/jamubc/syllabus" className="text-muted-foreground hover:text-foreground">GitHub</a></li>
               </ul>
             </div>
           </div>

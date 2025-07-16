@@ -670,8 +670,6 @@ export default function ForStudentsPage() {
               <h3 className="font-semibold mb-4">Connect</h3>
               <ul className="space-y-2 text-sm">
                 <li><a href="https://github.com/jamubc/syllabus" className="text-muted-foreground hover:text-foreground">GitHub</a></li>
-                <li><a href="#" className="text-muted-foreground hover:text-foreground">Discord</a></li>
-                <li><a href="#" className="text-muted-foreground hover:text-foreground">Twitter</a></li>
               </ul>
             </div>
           </div>

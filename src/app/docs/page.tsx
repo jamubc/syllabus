@@ -216,14 +216,18 @@ export default function DocsPage() {
                     <Terminal className="h-6 w-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-2">AI Platform</h3>
+                    <h3 className="font-semibold mb-2">MCP Clients</h3>
                     <p className="text-sm text-muted-foreground mb-3">
                       Syllabus works with multiple AI platforms. Choose your preferred one:
                     </p>
                     <ul className="space-y-2 text-sm">
                       <li className="flex items-center gap-2">
                         <Check className="h-4 w-4 text-primary" />
-                        <span>Claude Desktop (Recommended)</span>
+                        <span>Syllabus Chat (soon!)</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <Check className="h-4 w-4 text-primary" />
+                        <span>Claude Desktop</span>
                       </li>
                       <li className="flex items-center gap-2">
                         <Check className="h-4 w-4 text-primary" />
@@ -775,8 +779,6 @@ Not affiliated with Instructure or Canvas LMS
               <h3 className="font-semibold mb-4">Connect</h3>
               <ul className="space-y-2 text-sm">
                 <li><a href="https://github.com/jamubc/syllabus" className="text-muted-foreground hover:text-foreground">GitHub</a></li>
-                <li><a href="#" className="text-muted-foreground hover:text-foreground">Discord</a></li>
-                <li><a href="#" className="text-muted-foreground hover:text-foreground">Twitter</a></li>
               </ul>
             </div>
           </div>
